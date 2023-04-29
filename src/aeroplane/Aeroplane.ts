@@ -1,5 +1,19 @@
+import { Gate } from "../Airline/Gate";
 import {Flight} from "../Flight";
+import { Layout } from "./Layout";
 export class Aeroplane{
+    gate:Gate;
     flights: Flight[] = [];
-    constructor(private registerNumber:number, private code: string, private model:string){}
+    layouts :Layout[]=[];
+    constructor(private registerNumber:number, private code: string){
+    }
+    
+    addFlight(flight:Flight){
+        this.flights.push(flight);
+    }
+
+    addLayout(layout:Layout){
+        this.layouts.push(layout)
+    }
+
 }

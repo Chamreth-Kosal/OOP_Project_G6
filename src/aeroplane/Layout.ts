@@ -4,4 +4,8 @@ export class Layout{
     aeroplane: Aeroplane;
     seats:Seat[]=[]
     constructor(private row:number, private column:number){}
+
+    addSeat(seat:Seat){
+        this.seats.push(seat)
+    }
 }

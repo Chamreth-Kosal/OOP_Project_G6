@@ -4,6 +4,21 @@ import {Trip} from "../trip/Trip"
 export class Passenger{
     genders: Gender;
     flights : Flight[]=[];
-    trip : Trip[]=[];
-    constructor(private name:string, private age:number, private phone:number, private gender:string ){}
+    trips : Trip[]=[];
+    constructor(private name:string, private age:number, private phone:string, private gender:Gender,public hasReturnTicket:boolean){}
+
+    addFlight(flight:Flight){
+      this.flights.push(flight);
+      flight.passengers.push(this);
+    }
+
+    addTrip(trip: Trip){
+      this.trips.push(trip);
+      trip.passengers.push(this);
+    }
+
+    getFlight(){
+      return this.flights;
+    }
+
 }

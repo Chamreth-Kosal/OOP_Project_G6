@@ -1,3 +1,7 @@
+import { Airline } from "../Airline/Airline";
+
 export abstract class Employee{
-    constructor(id:number, name:string, age:number, phone:string, address:string){}
+    airline: Airline;
+    employees: any;
+    constructor(public id:number, public name:string, public salary:number){}
 }

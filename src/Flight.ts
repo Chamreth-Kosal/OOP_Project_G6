@@ -1,7 +1,7 @@
 import { Aeroplane } from "./aeroplane/Aeroplane";
-import { Airport } from "./airport/Airport";
-import { Gate } from "./airport/Gate";
-import { Route } from "./airport/Route";
+import { Airport } from "./Airline/Airport";
+import { Gate } from "./Airline/Gate";
+import { Route } from "./Airline/Route";
 import { Chef } from "./human/Chef";
 import { Crew } from "./human/Crew";
 import { FlightAttendant } from "./human/FlightAttendant";
@@ -9,9 +9,11 @@ import { Passenger } from "./human/Passenger";
 import { Pilot } from "./human/Pilot";
 import { Meal } from "./meal/Meal";
 import { Trip } from "./trip/Trip";
+import { Airline } from "./Airline/Airline";
 
 export class Flight{
-    trip:Trip;
+    trips:Trip[]=[];
+    airline:Airline;
     passengers:Passenger[]=[];
     airport:Airport;
     gate:Gate;
@@ -22,6 +24,62 @@ export class Flight{
     crews:Crew[]=[];
     pilots:Pilot[]=[];
     fightAttendants:FlightAttendant[]=[];
-    constructor(flightNumber:string, date:Date, departureTime:string,arriveTime:string){}
+    constructor(public flightNumber:string, public date:string, private departureTime:string,private arriveTime:string){}
+    
+    addPassenger(passenger:Passenger){
+      this.passengers.push(passenger);
+      passenger.flights.push(this);
+    }
 
+    addTrip(trip: Trip){
+      this.trips.push(trip);
+      trip.flights.push(this);
+    }
+
+    getPassenger(){
+      return this.passengers;
+    }
+
+    addPilot(pilot:Pilot){
+        this.pilots.push(pilot);
+    }
+    addCrew(crew:Crew){
+        this.crews.push(crew);
+    }
+
+    addChef(chef:Chef){
+        this.chefs.push(chef);
+    }
+
+    addMeal(meal:Meal){
+        this.meals.push(meal);
+    }
+
+    addFlightAttendant(flightAttendant:FlightAttendant){
+        this.fightAttendants.push(flightAttendant);
+    }
+
+    getGate(): Gate {
+      return this.gate;
+    }
+
+    getFlightNumber(): string {
+      return this.flightNumber;
+    }
+
+    assignGate(gate: Gate) {
+      this.gate = gate;
+      gate.flight = this;
+    }
+  
+    getPassengerReturnTicket(): number {
+      let returnTicketCount = 0;
+      for (const passenger of this.passengers) {
+        if (passenger.hasReturnTicket) {
+          returnTicketCount++;
+        }
+      }
+      return returnTicketCount;
+    }
 }
+  

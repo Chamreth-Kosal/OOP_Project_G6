@@ -3,5 +3,10 @@ import { Airport } from "./Airport";
 export class Gate{
     flight:Flight;
     airport:Airport;
-    constructor(private gateNumber:string,private area:string){}
+    constructor(public gateNumber:string){}
+
+    getGateNumber(): string {
+        return this.gateNumber;
+    }
+
 }
