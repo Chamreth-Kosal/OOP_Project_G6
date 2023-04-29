@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Flight = void 0;
+var Meal_1 = require("./meal/Meal");
 var Flight = /** @class */ (function () {
     function Flight(flightNumber, date, departureTime, arriveTime) {
         this.flightNumber = flightNumber;
@@ -35,9 +36,9 @@ var Flight = /** @class */ (function () {
     Flight.prototype.addChef = function (chef) {
         this.chefs.push(chef);
     };
-    Flight.prototype.addMeal = function (meal) {
-        this.meals.push(meal);
-    };
+    // addMeal(meal:Meal){
+    //     this.meals.push(meal);
+    // }
     Flight.prototype.addFlightAttendant = function (flightAttendant) {
         this.fightAttendants.push(flightAttendant);
     };
@@ -60,6 +61,19 @@ var Flight = /** @class */ (function () {
             }
         }
         return returnTicketCount;
+    };
+    Flight.prototype.addMeal = function (type, count) {
+        this.meals.push(new Meal_1.Meal(type, count));
+    };
+    Flight.prototype.getMealCountByType = function (type) {
+        var count = 0;
+        for (var _i = 0, _a = this.meals; _i < _a.length; _i++) {
+            var meal = _a[_i];
+            if (meal.type === type) {
+                count += meal.count;
+            }
+        }
+        return count;
     };
     return Flight;
 }());

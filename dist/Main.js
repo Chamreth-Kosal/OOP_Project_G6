@@ -56,15 +56,22 @@ layout1.addSeat(Seat1);
 airline1.addEmployee(pilot1);
 airline1.addEmployee(crew1);
 //console.log test
+// ------user story1 getallinformationPassenger--------
 // console.log(passenger1);
 // console.log(flight1);
 // console.log(airport1);
 // console.log(plane1);
 // console.log(layout1);
+// ------user story5 get salary------
 // console.log(airline1.getTotalSalary());
-// ------test gate---------
-var gateForFlight1 = airport1.getGateForFlight("1A");
-console.log(gateForFlight1);
-// ----RetrunTicket test-----
+// ------user story6 test gate---------
+// const gateForFlight1 = airport1.getGateForFlight("1A");
+// console.log(gateForFlight1);
+// ----user story2 RetrunTicket test-----
 // let returnPassengers = flight1.getPassengerReturnTicket();
 // console.log(returnPassengers);
+flight1.addMeal("vegetarian", 10);
+flight1.addMeal("kosher", 5);
+flight1.addMeal("halal", 7);
+var vegetarianCount = flight1.getMealCountByType("vegetarian");
+console.log(vegetarianCount);

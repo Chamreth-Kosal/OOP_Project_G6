@@ -12,10 +12,11 @@ import { Airline } from "./Airline/Airline";
 import { FlightAttendant } from "./human/FlightAttendant";
 import { Chef } from "./human/Chef";
 
+
 //test
 
-let passenger1 = new Passenger("navy", 20, "0962423921", Gender.FEMALE,true);
-let passenger2 = new Passenger("tata", 20, "0962426788", Gender.MALE, true);
+let passenger1 = new Passenger("navy", 20, Gender.FEMALE,true);
+let passenger2 = new Passenger("tata", 20, Gender.MALE, true);
 
 let trip1 = new Trip("PP",200, 2,"01-01-2023");
 let trip2 = new Trip("PV",300, 2,"01-01-2022");
@@ -78,17 +79,22 @@ airline1.addEmployee(crew1);
 
 //console.log test
 
+// ------user story1 getallinformationPassenger--------
 // console.log(passenger1);
+
 // console.log(flight1);
 // console.log(airport1);
 // console.log(plane1);
 // console.log(layout1);
+
+// ------user story5 get salary------
 // console.log(airline1.getTotalSalary());
 
-// ------test gate---------
+// ------user story6 test gate---------
 // const gateForFlight1 = airport1.getGateForFlight("1A");
 // console.log(gateForFlight1);
 
-// ----RetrunTicket test-----
+// ----user story2 RetrunTicket test-----
 // let returnPassengers = flight1.getPassengerReturnTicket();
 // console.log(returnPassengers);
+

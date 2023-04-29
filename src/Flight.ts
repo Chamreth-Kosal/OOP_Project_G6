@@ -1,7 +1,6 @@
 import { Aeroplane } from "./aeroplane/Aeroplane";
 import { Airport } from "./Airline/Airport";
 import { Gate } from "./Airline/Gate";
-import { Route } from "./Airline/Route";
 import { Chef } from "./human/Chef";
 import { Crew } from "./human/Crew";
 import { FlightAttendant } from "./human/FlightAttendant";
@@ -17,7 +16,6 @@ export class Flight{
     passengers:Passenger[]=[];
     airport:Airport;
     gate:Gate;
-    rout:Route;
     aeroplan:Aeroplane;
     meals:Meal[]=[];
     chefs:Chef[]=[];
@@ -51,10 +49,6 @@ export class Flight{
         this.chefs.push(chef);
     }
 
-    addMeal(meal:Meal){
-        this.meals.push(meal);
-    }
-
     addFlightAttendant(flightAttendant:FlightAttendant){
         this.fightAttendants.push(flightAttendant);
     }
@@ -81,5 +75,15 @@ export class Flight{
       }
       return returnTicketCount;
     }
+    
+    getMeals(){
+      let listMeal = [];
+      for (let passengers of this.meals){
+        listMeal.push(passengers["type"]);
+        
+    }
+    return listMeal
+  }
+
 }
   

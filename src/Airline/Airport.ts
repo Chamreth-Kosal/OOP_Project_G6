@@ -1,5 +1,4 @@
 import {Flight} from "../Flight";
-import { Aeroplane } from "../aeroplane/Aeroplane";
 import { Pilot } from "../human/Pilot";
 import {Gate} from "./Gate";
 export class Airport{
