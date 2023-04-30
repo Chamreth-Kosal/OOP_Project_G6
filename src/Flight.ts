@@ -75,12 +75,16 @@ export class Flight{
       }
       return returnTicketCount;
     }
+
     
+    addMeal(meal:Meal){
+      this.meals.push(meal)
+    }
+
     getMeals(){
       let listMeal = [];
       for (let passengers of this.meals){
         listMeal.push(passengers["type"]);
-        
     }
     return listMeal
   }

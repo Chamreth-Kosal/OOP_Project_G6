@@ -3,11 +3,10 @@ import {Flight} from "../Flight";
 import {Trip} from "../trip/Trip"
 import { Meal } from "../meal/Meal";
 export class Passenger{
-    meal:Meal;
     genders: Gender;
     flights : Flight[]=[];
     trips : Trip[]=[];
-    constructor(private name:string, private age:number, private gender:Gender,public hasReturnTicket:boolean){}
+    constructor(private name:string, private age:number, private gender:Gender,public hasReturnTicket:boolean,public meal:Meal){}
 
     addFlight(flight:Flight){
       this.flights.push(flight);

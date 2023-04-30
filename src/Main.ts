@@ -11,12 +11,29 @@ import { Trip } from "./trip/Trip";
 import { Airline } from "./Airline/Airline";
 import { FlightAttendant } from "./human/FlightAttendant";
 import { Chef } from "./human/Chef";
+import { Meal, MealType } from "./meal/Meal";
+
+//test getMeal
+
+let meal1 = new Meal(MealType.VERGAN,1);
+let meal2 = new Meal(MealType.HALAL,1);
+
+
+let myFlight = new Flight('10','22-11-12','12:30', '1:30');
+myFlight.addMeal(meal1)
+myFlight.addMeal(meal2)
+console.log(myFlight);
+
+
 
 
 //test
 
-let passenger1 = new Passenger("navy", 20, Gender.FEMALE,true);
-let passenger2 = new Passenger("tata", 20, Gender.MALE, true);
+let passenger1 = new Passenger("navy", 20, Gender.FEMALE,true,meal1);
+let passenger2 = new Passenger("tata", 20, Gender.MALE, true,meal2);
+
+// console.log(passenger1);
+
 
 let trip1 = new Trip("PP",200, 2,"01-01-2023");
 let trip2 = new Trip("PV",300, 2,"01-01-2022");
@@ -97,4 +114,8 @@ airline1.addEmployee(crew1);
 // ----user story2 RetrunTicket test-----
 // let returnPassengers = flight1.getPassengerReturnTicket();
 // console.log(returnPassengers);
+
+
+
+
 
